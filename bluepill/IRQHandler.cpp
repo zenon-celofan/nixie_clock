@@ -13,7 +13,7 @@
 
 extern uint32_t milliseconds_after_reset;
 extern NixieDisplay nixie_display;
-extern char gps_rx_frame[];
+extern char esp8266_rx_frame[];
 
 
 //nixie display refresh
@@ -86,18 +86,13 @@ void USART3_IRQHandler(void) {
 		if (received_byte == RX_FRAME_END_BYTE) {
 			received_byte = 0;
 			byte_position_in_frame = 0;
-			if (index_of(rx_frame, "$GPGGA,", 0) == 0) {
+			if (index_of(rx_frame, "!", 0) == 0) {
 				uint8_t pos = 0;
 				do {
-					gps_rx_frame[pos] = rx_frame[pos];
+					esp8266_rx_frame[pos] = rx_frame[pos];
 				} while (rx_frame[pos++] != RX_FRAME_END_BYTE);
-				if (gps_rx_frame[7] != ',') {   //frame contains time info
-					//temp_hours = (gps_rx_frame[7] - 0x30) * 10 + gps_rx_frame[8] - 0x30;
-					//temp_minutes = (gps_rx_frame[9] - 0x30) * 10 + gps_rx_frame[10] - 0x30;
-					//temp_seconds = (gps_rx_frame[11] - 0x30) * 10 + gps_rx_frame[12] - 0x30;
-					sscanf(gps_rx_frame, "$GPGGA,%2d%2d%2d", &temp_hours, &temp_minutes, &temp_seconds);
+					sscanf(esp8266_rx_frame, "!%2d:%2d:%2d", &temp_hours, &temp_minutes, &temp_seconds);
 					RTC_SetCounter((uint32_t) temp_hours * 3600 + temp_minutes * 60 + temp_seconds);
-				}
 			}
 		}
     }

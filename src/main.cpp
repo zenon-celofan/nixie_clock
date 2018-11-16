@@ -10,17 +10,18 @@
 #include "Neo6M.h"
 #include "Rtc.h"
 #include "stm32f10x_rtc.h"
+#include "Pin.h"
 
 #define TIME_REFRESH_PERIOD_MS	1000
 
-
+Pin		esp8266_pin(GPIOB, GPIO_Pin_1);
 Neo6M 	gps_receiver;
 NixieDisplay nixie_display;
 Rtc 	rtc;
 Led 	led_builtin(PC13, Bit_RESET);
 Relay 	clicker_relay(PB1, Bit_RESET);
 uint32_t time = 0;
-char 	gps_rx_frame[100];
+char 	esp8266_rx_frame[100];
 char 	gps_fix_status;
 char 	temp_str[100];
 
@@ -29,6 +30,8 @@ char 	temp_str[100];
 
 
 void main() {
+
+	esp8266_pin.digital_write(LOW);
 
 	millis_init();
 
@@ -40,7 +43,8 @@ void main() {
     time = millis();
     uint32_t RTC_Counter;
 
-
+    //delay(3000);
+    esp8266_pin.digital_write(HIGH);
 
 
     //while(1);
@@ -49,9 +53,9 @@ void main() {
 
 		if ((millis() - time) > TIME_REFRESH_PERIOD_MS) {
 			time = millis();
-			if (gps_rx_frame[0] != 0) {
-				serial2_send(gps_rx_frame);
-				gps_rx_frame[0] = 0;
+			if (esp8266_rx_frame[0] != 0) {
+				serial2_send(esp8266_rx_frame);
+				esp8266_rx_frame[0] = 0;
 			}
 
 			nixie_display.update_time();
