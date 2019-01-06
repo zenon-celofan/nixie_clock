@@ -115,7 +115,11 @@ void NixieTube::display_digit(uint8_t digit) {
 		GPIO_WriteBit(bcd_D_pin_port, bcd_D_pin_number, Bit_SET);
 	}
 
-	turn_on();
+	if (digit < 10) {
+		turn_on();
+	} else {
+		turn_off();
+	}
 
 } //display_digit()
 

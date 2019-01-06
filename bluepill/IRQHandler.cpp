@@ -3,7 +3,7 @@
 #include "stm32f10x.h"
 #include "stm32f10x_exti.h"
 #include "stm32f10x_rtc.h"
-#include "Neo6M.h"
+//#include "Neo6M.h"
 #include "serial2.h"
 #include "Led.h"
 #include "Relay.h"
@@ -22,6 +22,16 @@ void TIM3_IRQHandler(void) {
 	static uint8_t current_digit = 0;
 
 	TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
+
+	if (nixie_display.auto_update_from_rtc == true) {
+		nixie_display.show_current_time();
+	} else if (nixie_display.balance_mode_active == true) {
+		//nixie_display.digit[current_digit] > 9 ? nixie_display.digit[current_digit] = 0 : nixie_display.digit[current_digit] += 1;
+		nixie_display.digit[current_digit] += 1;
+		if (nixie_display.digit[current_digit] > 9) {
+			nixie_display.digit[current_digit] = 0;
+		}
+	}
 
 	nixie_display.digit_active_status[current_digit] = false;
 
@@ -53,7 +63,7 @@ void EXTI15_10_IRQHandler(void) {
 } //EXTI15_10_IRQHandler();
 
 
-//gps receive frame
+//clock source receive frame
 void USART3_IRQHandler(void) {
 
     static char rx_frame[RX_FRAME_SIZE];

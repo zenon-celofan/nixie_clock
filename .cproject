@@ -54,11 +54,9 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/stm32f1-stdperiph&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/bluepill}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Dcf77}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/DS3231}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Neo6M}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Nixie}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Clock}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/MotionSensor}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.1872556765" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -76,11 +74,9 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/stm32f1-stdperiph&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/bluepill}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Dcf77}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/DS3231}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Neo6M}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Nixie}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Clock}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/MotionSensor}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.13610009" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -98,11 +94,9 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/stm32f1-stdperiph&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/bluepill}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Dcf77}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/DS3231}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Neo6M}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Nixie}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Clock}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/MotionSensor}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.85099201" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.752465001" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -162,13 +156,13 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Clock"/>
 						<entry excluding="DS3231.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="DS3231"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="MotionSensor"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Neo6M"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Nixie"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="bluepill"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
-						<entry excluding="src/stm32f1-stdperiph/stm32f10x_i2c.c|src/stm32f1-stdperiph/stm32f10x_dbgmcu.c|src/stm32f1-stdperiph/stm32f10x_adc.c|src/stm32f1-stdperiph/stm32f10x_wwdg.c|src/stm32f1-stdperiph/stm32f10x_iwdg.c|src/stm32f1-stdperiph/stm32f10x_dma.c|src/stm32f1-stdperiph/stm32f10x_bkp.c|src/stm32f1-stdperiph/stm32f10x_crc.c|src/stm32f1-stdperiph/stm32f10x_dac.c|src/stm32f1-stdperiph/stm32f10x_can.c|src/stm32f1-stdperiph/stm32f10x_spi.c|src/stm32f1-stdperiph/stm32f10x_flash.c|src/stm32f1-stdperiph/stm32f10x_sdio.c|src/stm32f1-stdperiph/stm32f10x_fsmc.c|src/stm32f1-stdperiph/stm32f10x_cec.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
+						<entry excluding="src/stm32f1-stdperiph/stm32f10x_i2c.c|src/stm32f1-stdperiph/stm32f10x_dbgmcu.c|src/stm32f1-stdperiph/stm32f10x_adc.c|src/stm32f1-stdperiph/stm32f10x_wwdg.c|src/stm32f1-stdperiph/stm32f10x_iwdg.c|src/stm32f1-stdperiph/stm32f10x_bkp.c|src/stm32f1-stdperiph/stm32f10x_crc.c|src/stm32f1-stdperiph/stm32f10x_dac.c|src/stm32f1-stdperiph/stm32f10x_can.c|src/stm32f1-stdperiph/stm32f10x_spi.c|src/stm32f1-stdperiph/stm32f10x_flash.c|src/stm32f1-stdperiph/stm32f10x_sdio.c|src/stm32f1-stdperiph/stm32f10x_fsmc.c|src/stm32f1-stdperiph/stm32f10x_cec.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -226,11 +220,9 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/stm32f1-stdperiph&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/bluepill}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Dcf77}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/DS3231}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Neo6M}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Nixie}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Clock}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/MotionSensor}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.1715627186" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -247,11 +239,9 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/stm32f1-stdperiph&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/bluepill}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Dcf77}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/DS3231}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Neo6M}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Nixie}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Clock}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/MotionSensor}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1811869955" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -268,11 +258,9 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/stm32f1-stdperiph&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/bluepill}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Dcf77}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/DS3231}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Neo6M}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Nixie}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/Clock}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nixie_clock/MotionSensor}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.1663249027" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.148651374" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -331,13 +319,13 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Clock"/>
 						<entry excluding="DS3231.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="DS3231"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="MotionSensor"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Neo6M"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Nixie"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="bluepill"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
-						<entry excluding="src/stm32f1-stdperiph/stm32f10x_i2c.c|src/stm32f1-stdperiph/stm32f10x_dbgmcu.c|src/stm32f1-stdperiph/stm32f10x_adc.c|src/stm32f1-stdperiph/stm32f10x_wwdg.c|src/stm32f1-stdperiph/stm32f10x_iwdg.c|src/stm32f1-stdperiph/stm32f10x_dma.c|src/stm32f1-stdperiph/stm32f10x_bkp.c|src/stm32f1-stdperiph/stm32f10x_crc.c|src/stm32f1-stdperiph/stm32f10x_dac.c|src/stm32f1-stdperiph/stm32f10x_can.c|src/stm32f1-stdperiph/stm32f10x_spi.c|src/stm32f1-stdperiph/stm32f10x_flash.c|src/stm32f1-stdperiph/stm32f10x_sdio.c|src/stm32f1-stdperiph/stm32f10x_fsmc.c|src/stm32f1-stdperiph/stm32f10x_cec.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
+						<entry excluding="src/stm32f1-stdperiph/stm32f10x_i2c.c|src/stm32f1-stdperiph/stm32f10x_dbgmcu.c|src/stm32f1-stdperiph/stm32f10x_adc.c|src/stm32f1-stdperiph/stm32f10x_wwdg.c|src/stm32f1-stdperiph/stm32f10x_iwdg.c|src/stm32f1-stdperiph/stm32f10x_bkp.c|src/stm32f1-stdperiph/stm32f10x_crc.c|src/stm32f1-stdperiph/stm32f10x_dac.c|src/stm32f1-stdperiph/stm32f10x_can.c|src/stm32f1-stdperiph/stm32f10x_spi.c|src/stm32f1-stdperiph/stm32f10x_flash.c|src/stm32f1-stdperiph/stm32f10x_sdio.c|src/stm32f1-stdperiph/stm32f10x_fsmc.c|src/stm32f1-stdperiph/stm32f10x_cec.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
