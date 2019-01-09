@@ -5,6 +5,7 @@
 #include "bluepill.h"
 #include "delay.h"
 #include "serial2.h"
+#include "serial3.h"
 #include "Led.h"
 #include "Relay.h"
 #include "Rtc.h"
@@ -14,8 +15,10 @@
 #include "MotionSensor.h"
 
 #define TIME_REFRESH_PERIOD_MS						1000
-#define DISPLAY_TURN_TO_BALANCE_MODE_TIME_MS		10000
-#define DISPLAY_SHUTDOWN_AFTER_NO_MOVEMENT_MS		15000
+#define DISPLAY_SHUTDOWN_AFTER_NO_MOVEMENT_MS		900000
+#define DISPLAY_BALANCE_MODE_TIME_START_MS			10800000
+#define DISPLAY_BALANCE_MODE_TIME_STOP_MS			12600000
+
 
 
 Pin		esp8266_pin(GPIOB, GPIO_Pin_1);
@@ -37,6 +40,7 @@ uint32_t	b = 0;
 
 
 void my_dma(void);
+void init_receive_interrupt(void);
 
 void main() {
 
@@ -48,6 +52,9 @@ void main() {
 
 	serial2_init();			//debug serial
 	serial2_send("\n\n\n*** nixie_clock - RESET ***\n\n");
+
+	serial3_init();			//esp8266 serial
+	init_receive_interrupt();
 
     led_builtin.turn_off();
 
@@ -81,11 +88,16 @@ void main() {
 				nixie_display.auto_update_from_rtc = true;
 				nixie_display.balance_mode_active = false;
 			} else {
-				if ((millis() - last_movement_detected) > DISPLAY_SHUTDOWN_AFTER_NO_MOVEMENT_MS) {
+				if ((millis() - last_movement_detected) > DISPLAY_BALANCE_MODE_TIME_STOP_MS) {
+					nixie_display.balance_mode_active = false;
 					nixie_display.turn_off();
-				} else if ((millis() - last_movement_detected) > DISPLAY_TURN_TO_BALANCE_MODE_TIME_MS) {
+				} else if ((millis() - last_movement_detected) > DISPLAY_BALANCE_MODE_TIME_START_MS) {
 					nixie_display.auto_update_from_rtc = false;
 					nixie_display.balance_mode_active = true;
+					nixie_display.turn_on();
+				} else if ((millis() - last_movement_detected) > DISPLAY_SHUTDOWN_AFTER_NO_MOVEMENT_MS) {
+					nixie_display.balance_mode_active = false;
+					nixie_display.turn_off();
 				}
 			}
 
@@ -139,3 +151,16 @@ void my_dma(void) {
 
 
 }
+
+void init_receive_interrupt(void) {
+
+	NVIC_InitTypeDef NVIC_InitStructure;
+
+	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);
+	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x4;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
+} //init_receive_interrupt()
