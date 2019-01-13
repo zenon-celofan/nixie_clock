@@ -13,6 +13,9 @@ MotionSensor::MotionSensor(uint8_t feedback_pin, uint8_t chip_disable_pin) {
 	chip_disable_A_pin_port = get_pin_port(chip_disable_pin);
 	chip_disable_A_pin_number = get_pin_number(chip_disable_pin);
 
+	init_pins();
+
+	turn_on();
 }
 
 
@@ -57,10 +60,10 @@ bool MotionSensor::is_motion_detected(void) {
 
 
 void MotionSensor::turn_on(void) {
-	GPIO_WriteBit(chip_disable_A_pin_port, chip_disable_A_pin_number, Bit_RESET);
+	GPIO_WriteBit(chip_disable_A_pin_port, chip_disable_A_pin_number, Bit_SET);
 } //turn_on()
 
 
 void MotionSensor::turn_off(void) {
-	GPIO_WriteBit(chip_disable_A_pin_port, chip_disable_A_pin_number, Bit_SET);
+	GPIO_WriteBit(chip_disable_A_pin_port, chip_disable_A_pin_number, Bit_RESET);
 } //turn_off()
